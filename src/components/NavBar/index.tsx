@@ -2,6 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image"
+import { FaHome } from "react-icons/fa";
+import logo from "@/assets/images/logo.webp"
 
 import { cn } from "@/lib/utils";
 // import { Icons } from "@/components/icons"
@@ -55,43 +58,46 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function NavBar() {
   return (
-      <NavigationMenu className="flex justify-between max-w-[1440px] m-auto">
-        <NavigationMenuList>
-          <NavigationMenuItem>
+    <NavigationMenu className="lg:mt-10 md:mt-5 pt-4 lg:h-20">
+      <NavigationMenuList>
+        <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Logo
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <Link href="/" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Accueil
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
+              <Image src={logo} alt="logo du site" width={80} height={80} className="bg-white rounded-full bg-opacity-50" />
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="lg:text-xl uppercase md:text-lg">
+            Réalisations
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[375px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
 
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Réalisations</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[375px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
-                  >
-                    {component.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <FaHome className="w-6 h-6" />
+              <span className="ml-2 hidden md:block lg:text-xl uppercase md:text-lg ">
+                Accueil
+              </span>
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 }
 
