@@ -12,5 +12,6 @@ export interface HobbieFormData {
   }
   
   export interface HobbiePageProps {
-    params: HobbieFormData;
+    params: HobbieFormData[];
+    title: string;
   }

@@ -1,12 +1,11 @@
-.container-last-hobbies {
+.container-hobbies {
     margin-bottom: 50px;
     padding-bottom: 20px;
   
-    .title-last-hobbies {
+    .title-hobbies {
       margin: 50px 0 20px;
       text-align: center;
       font-size: 24px;
-    //   color: #ffd700;
   
       @media (min-width: 768px) {
         font-size: 32px;
@@ -47,7 +46,6 @@
           width: 100%;
   
           .card-image {
-            // height: 220px;
             width: 100%;
             aspect-ratio: 2 / 1;
             object-fit: cover;
@@ -67,6 +65,15 @@
   
           @media (min-width: 768px) {
             font-size: 18px;
+          }
+        }
+
+        .image-subtitle {
+          color: #6c757d;
+          font-size: 12px;
+
+          @media (min-width: 768px) {
+            font-size: 16px;
           }
         }
       }

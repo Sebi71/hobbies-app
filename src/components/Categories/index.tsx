@@ -3,17 +3,17 @@
 import { useFirebaseHobbies } from "@/context/hobbiesContext";
 import Cards from "../Cards";
 
-export default function LastHobbies() {
+
+export default function Categories() {
   const { hobbies } = useFirebaseHobbies();
 
-  const latestHobbies = hobbies
+  const sortedHobbies = hobbies
     .filter((hobbie) => hobbie.createdAt)
-    .sort((a, b) => b.createdAt.seconds - a.createdAt.seconds)
-    .slice(0, 4);
+    .sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
 
   return (
     <>
-      <Cards params={latestHobbies} title={"Dernières réalisations :"} />
+      <Cards params={sortedHobbies} title={"Ensemble de mes réalisations :"} />
     </>
   );
 }

@@ -91,7 +91,7 @@ useEffect(() => {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <IoChatboxEllipses className="w-6 h-6" />
               <span className="ml-2 hidden md:block lg:text-xl uppercase md:text-lg ">
