@@ -1,0 +1,118 @@
+.filter-component {
+  max-width: 210px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 30px;
+
+  .filter-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .filter-container {
+    position: relative;
+    width: 100%;
+
+    .filter-button {
+      background-color: white;
+      border: 1px solid #7d8ea3;
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .icons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .icon-x {
+        color: #f87171;
+        cursor: pointer;
+        width: 23px;
+        height: 23px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          color: #dc2626;
+          transform: scale(1.2);
+        }
+      }
+
+      .icon-chevron {
+        transform: rotate(0deg);
+        transition: transform 0.2s ease;
+      }
+
+      &.open .icon-chevron {
+        transform: rotate(180deg);
+      }
+    }
+
+    .dropdown {
+      position: absolute;
+      z-index: 10;
+      margin-top: 2px;
+      background-color: white;
+      border: 1px solid #7d8ea3;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      .search-input {
+        width: 100%;
+        padding: 8px;
+        border-bottom: 1px solid #e5e7eb;
+        border-radius: 8px 8px 0 0;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 1px #3b82f6;
+          border-radius: inherit;
+        }
+      }
+
+      .options {
+        max-height: 15rem;
+        overflow-y: auto;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f3f4f6;
+        }
+
+        &.selected {
+          background-color: #bfdbfe;
+        }
+      }
+
+      .no-results {
+        padding: 5px 10px;
+        color: #6b7280;
+      }
+
+      .reset-button {
+        width: 100%;
+        font-size: 14px;
+        color: #ef4444;
+        padding: 5px 0;
+
+        &:hover {
+          color: #dc2626;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

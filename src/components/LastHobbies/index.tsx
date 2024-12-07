@@ -12,8 +12,9 @@ export default function LastHobbies() {
     .slice(0, 4);
 
   return (
-    <>
-      <Cards params={latestHobbies} title={"Dernières réalisations :"} />
-    </>
+    <div className="reveal container-hobbies">
+      <h2 className="title-hobbies">Dernières réalisations :</h2>
+      <Cards params={latestHobbies}/>
+    </div>
   );
 }

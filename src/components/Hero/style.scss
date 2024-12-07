@@ -41,8 +41,7 @@
     object-fit: cover;
   }
 
-  &::after {
-    content: "";
+  .wave-container {
     position: absolute;
     bottom: -10px;
     left: 0;

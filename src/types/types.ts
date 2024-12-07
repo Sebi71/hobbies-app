@@ -13,5 +13,15 @@ export interface HobbieFormData {
   
   export interface HobbiePageProps {
     params: HobbieFormData[];
-    title: string;
+  }
+
+  export interface FilterProps {
+    handleFilter: (category: string) => void;
+    categories: string[];
+  }
+
+  export interface CategoriesProps {
+    params: {
+      category: string;
+    }
   }

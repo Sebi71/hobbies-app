@@ -52,7 +52,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <NavigationMenu className="lg:mt-10 md:mt-5 pt-4 lg:h-20">
+    <NavigationMenu className="pt-4 lg:h-20">
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
@@ -77,7 +77,7 @@ useEffect(() => {
                 <ListItem
                   key={category}
                   title={category}
-                  href={`/categories/${category}`}
+                  href={`/${category}`}
                 >
                   {categories[category].map((title, index) => (
                       <li key={index}>
@@ -132,7 +132,7 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-lg font-medium leading-none">{title}</div>
-          <ul className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <ul className="text-sm leading-snug text-muted-foreground">
             {children}
           </ul>
         </a>

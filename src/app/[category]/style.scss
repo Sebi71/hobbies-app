@@ -1,0 +1,38 @@
+.container-category {
+    height: 100vh;
+    margin-top: 80px;
+    padding: 20px 20px 50px;
+    background-color: #f9eddd;
+
+    @media (min-width: 768px) {
+      margin-top: 100px;
+      
+    }
+  
+    .title-category {
+      margin: 50px 0 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+
+      @media (min-width: 425px) {
+        font-size: 24px;
+    }
+    
+    @media (min-width: 768px) {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .no-projects {
+    text-align: center;
+    color: #7d8ea3;
+    font-size: 18px;
+    margin-top: 400px;
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
+  }
