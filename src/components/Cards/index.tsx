@@ -1,11 +1,22 @@
 import { Card } from "@/components/ui/card";
+import Loader from "../Loader/Loader";
 import Link from "next/link";
 import Image from "next/image";
 import { HobbiePageProps } from "@/types/types";
+import { useState, useEffect } from "react";
+
 
 import "./style.scss";
 
 const Cards: React.FC<HobbiePageProps> = ({ params }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (params.length > 0) {
+      setLoading(false);
+    }
+  }, [params]);
+
   const getRandomImage = (images: string[]) => {
     if (images.length === 0) return null;
     const randomIndex = Math.floor(Math.random() * images.length);
@@ -14,6 +25,10 @@ const Cards: React.FC<HobbiePageProps> = ({ params }) => {
 
   return (
     <>
+    {loading ? (
+      <Loader />
+    ) : (
+ <>
       {params ? (
         <div className="container-card">
           {params.map((hobbie, index) => {
@@ -50,6 +65,8 @@ const Cards: React.FC<HobbiePageProps> = ({ params }) => {
       ) : (
         <p className="no-hobbie">Pas de réalisations disponible</p>
       )}
+      </>
+    )}
     </>
   );
 };

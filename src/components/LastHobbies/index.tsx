@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useFirebaseHobbies } from "@/context/hobbiesContext";
+import Loader from "../Loader/Loader";
 import Cards from "../Cards";
 
 export default function LastHobbies() {
@@ -14,7 +16,7 @@ export default function LastHobbies() {
   return (
     <div className="reveal container-hobbies">
       <h2 className="title-hobbies">Dernières réalisations :</h2>
-      <Cards params={latestHobbies}/>
+      <Cards params={latestHobbies} />
     </div>
   );
 }
