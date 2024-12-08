@@ -1,5 +1,5 @@
 import Image from "next/image";
-import background from "@/assets/images/font.jpeg";
+import background from "@/assets/images/font.webp";
 import wave from "@/assets/images/vague.svg";
 
 import "./style.scss";
@@ -9,7 +9,6 @@ export default function Hero() {
     <div className="hero-container">
       <h1 className="hero-title">Retrouvez ici mes différentes réalisations</h1>
       <Image src={background} alt="background" className="bg-image" priority></Image> 
-      {/* changer l'image */}
         <Image
           src={wave}
           alt="Vague"

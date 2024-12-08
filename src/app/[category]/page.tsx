@@ -9,6 +9,8 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { FaHome } from "react-icons/fa";
+import Image from "next/image";
+import noProject from "@/assets/images/no-project.webp";
 
 export default function CategoryPage() {
   const { hobbies } = useFirebaseHobbies();
@@ -51,6 +53,13 @@ export default function CategoryPage() {
       <div className="container-category-project">
         {filteredHobbies.length === 0 ? (
           <div className="no-projects-container">
+            <Image
+              src={noProject}
+              alt="image représenntant l'absence de projet"
+              width={250}
+              height={250}
+              className="no-project-img"
+            />
             <p className="no-projects">
               Aucun projet trouvé dans cette catégorie.
             </p>

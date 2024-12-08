@@ -8,7 +8,9 @@ import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { HobbieFormData } from "@/types/types";
 import Link from "next/link";
+import Image from "next/image";
 import { FaHome } from "react-icons/fa";
+import noProject from "@/assets/images/no-project.webp"
 
 import "./style.scss";
 
@@ -52,6 +54,13 @@ export default function ProjectPage() {
           </>
         ) : (
           <div className="no-projects-container">
+            <Image
+              src={noProject}
+              alt="image représenntant l'absence de projet"
+              width={250}
+              height={250}
+              className="no-project-img"
+            />
             <p className="no-projects">
               Le projet demandé n'existe pas encore.
             </p>
