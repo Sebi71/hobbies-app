@@ -13,6 +13,8 @@ const Polaroid: React.FC<PicturesProjectProps> = ({ pictures }) => {
               width={800}
               height={800}
               alt="1"
+            //   changer alt
+            className="polaroid-img"
             />
           </div>
         </div>

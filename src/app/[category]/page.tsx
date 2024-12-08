@@ -12,10 +12,12 @@ import { GiReturnArrow } from "react-icons/gi";
 import { FaHome } from "react-icons/fa";
 import Image from "next/image";
 import noProject from "@/assets/images/no-project.webp";
+import { useRouter } from "next/navigation";
 
 // style in global.css
 
 export default function CategoryPage() {
+  const router = useRouter();
   const { hobbies } = useFirebaseHobbies();
   const params = useParams();
   const category = params.category;
@@ -50,11 +52,15 @@ export default function CategoryPage() {
     );
   }
 
+  function handleClick(cardTitle: string) {
+    router.push(`/${category}/${cardTitle}`);
+  }
+
   return (
     <>
       <NavBar />
       <div className="container-category-project">
-      <Link href={"/"}>
+        <Link href={"/"}>
           <GiReturnArrow className="icon-return" />
         </Link>
         {filteredHobbies.length === 0 ? (
@@ -79,9 +85,7 @@ export default function CategoryPage() {
             <h1 className="title-category-project">
               Projets de la catégorie : {category}
             </h1>
-            <Link href={`/${category}/${filteredHobbies[0].title}`}>
-              <FocusCards cards={filteredHobbies} />
-            </Link>
+            <FocusCards cards={filteredHobbies} handleClick={handleClick} />
           </>
         )}
       </div>

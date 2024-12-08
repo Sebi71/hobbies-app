@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import { nanoid } from 'nanoid'
+import { nanoid } from "nanoid";
 
 export const Card = React.memo(
   ({
@@ -10,19 +10,22 @@ export const Card = React.memo(
     index,
     hovered,
     setHovered,
+    handleClick,
   }: {
     card: any;
     index: number;
     hovered: number | null;
     setHovered: React.Dispatch<React.SetStateAction<number | null>>;
+    handleClick: (title: string) => void;
   }) => (
     <div
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
+        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out cursor-pointer",
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
+      onClick={() => handleClick(card.title)}
     >
       <Image
         src={card.src}
@@ -51,7 +54,13 @@ type Card = {
   src: string;
 };
 
-export function FocusCards({ cards }: { cards: Card[] }) {
+export function FocusCards({
+  cards,
+  handleClick,
+}: {
+  cards: Card[];
+  handleClick: (title: string) => void;
+}) {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
@@ -63,6 +72,7 @@ export function FocusCards({ cards }: { cards: Card[] }) {
           index={index}
           hovered={hovered}
           setHovered={setHovered}
+          handleClick={handleClick}
         />
       ))}
     </div>

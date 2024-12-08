@@ -1,6 +1,6 @@
 .wrapper {
     width: 100%;
-    padding: 0 2rem;
+    // padding: 0 2rem;
     text-align: center;
   }
   .polaroid {
@@ -9,9 +9,15 @@
     box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
     
   }
-  .polaroid > img{
+  .polaroid-img{
     max-width: 100%;
-    height: auto;
+    // height: auto;
+    height: 275px;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+        height: 500px;
+      }
   }
   .item {
     width: 290px;
@@ -79,7 +85,7 @@
   }
   .item:hover {
     filter: none;
-    transform: scale(1, 1) rotate(0deg) !important;
+    transform: scale(1.2, 1.2) rotate(0deg) !important;
     transition: all 0.35s;
   }
   .item:hover .polaroid:before {
