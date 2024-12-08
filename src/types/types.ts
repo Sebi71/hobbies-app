@@ -25,3 +25,7 @@ export interface HobbieFormData {
       category: string;
     }
   }
+
+export interface PicturesProjectProps {
+    pictures: string[];
+}

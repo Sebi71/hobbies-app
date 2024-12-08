@@ -4,15 +4,18 @@ import { useParams } from "next/navigation";
 import { useFirebaseHobbies } from "@/context/hobbiesContext";
 import Loader from "@/components/Loader/Loader";
 import NavBar from "@/components/NavBar";
+import Polaroid from "@/components/Polaroid";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { HobbieFormData } from "@/types/types";
 import Link from "next/link";
 import Image from "next/image";
 import { FaHome } from "react-icons/fa";
+import { GiReturnArrow } from "react-icons/gi";
 import noProject from "@/assets/images/no-project.webp"
 
 import "./style.scss";
+// style in global.css
 
 export default function ProjectPage() {
   const { hobbies } = useFirebaseHobbies();
@@ -47,10 +50,14 @@ export default function ProjectPage() {
     <>
       <NavBar />
       <div className="container-category-project">
+        <Link href={`/${params.category}`}>
+          <GiReturnArrow className="icon-return" />
+        </Link>
         {project ? (
           <>
             <h1 className="title-category-project">{project.title}</h1>
             <p className="resum-project">{project.resum}</p>
+            <Polaroid pictures={project.pictures} />
           </>
         ) : (
           <div className="no-projects-container">

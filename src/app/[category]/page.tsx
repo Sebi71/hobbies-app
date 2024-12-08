@@ -8,9 +8,12 @@ import Loader from "@/components/Loader/Loader";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
+import { GiReturnArrow } from "react-icons/gi";
 import { FaHome } from "react-icons/fa";
 import Image from "next/image";
 import noProject from "@/assets/images/no-project.webp";
+
+// style in global.css
 
 export default function CategoryPage() {
   const { hobbies } = useFirebaseHobbies();
@@ -51,6 +54,9 @@ export default function CategoryPage() {
     <>
       <NavBar />
       <div className="container-category-project">
+      <Link href={"/"}>
+          <GiReturnArrow className="icon-return" />
+        </Link>
         {filteredHobbies.length === 0 ? (
           <div className="no-projects-container">
             <Image
