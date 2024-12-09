@@ -32,7 +32,7 @@ export default function Footer() {
             <VscGistSecret />
             Politique de confidentialité
           </Link>
-          <Link className="link-contact" href="/conditions-generales-d'utilisation">
+          <Link className="link-contact" href="/CGU">
             <FaFileLines />
             Conditions Générales d&apos;Utilisation
           </Link>
