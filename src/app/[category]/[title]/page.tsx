@@ -12,12 +12,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaHome } from "react-icons/fa";
 import { GiReturnArrow } from "react-icons/gi";
-import noProject from "@/assets/images/no-project.webp"
+import noProject from "@/assets/images/no-project.webp";
 
 import "./style.scss";
 // style in global.css
 
 export default function ProjectPage() {
+  // Effect to scroll to the top when the page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { hobbies } = useFirebaseHobbies();
   const params = useParams();
   const titleProject =
@@ -51,13 +56,16 @@ export default function ProjectPage() {
       <NavBar />
       <div className="container-category-project">
         <Link href={`/${params.category}`}>
-          <GiReturnArrow className="icon-return" />
+          <GiReturnArrow
+            className="icon-return"
+            aria-label="retour à la page catégorie"
+          />
         </Link>
         {project ? (
           <>
             <h1 className="title-category-project">{project.title}</h1>
             <p className="resum-project">{project.resum}</p>
-            <Polaroid pictures={project.pictures} />
+            <Polaroid pictures={project.pictures} title={project.title} />
           </>
         ) : (
           <div className="no-projects-container">

@@ -28,4 +28,5 @@ export interface HobbieFormData {
 
 export interface PicturesProjectProps {
     pictures: string[];
+    title: string;
 }

@@ -17,13 +17,18 @@ import { useRouter } from "next/navigation";
 // style in global.css
 
 export default function CategoryPage() {
+  // Effect to scroll to the top when the page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const router = useRouter();
   const { hobbies } = useFirebaseHobbies();
   const params = useParams();
   const category = params.category;
 
   const [filteredHobbies, setFilteredHobbies] = useState<
-    { title: string; src: string }[]
+    { title: string; src: string; category: string }[]
   >([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,6 +40,7 @@ export default function CategoryPage() {
         .map((hobbie) => ({
           title: hobbie.title,
           src: hobbie.pictures[hobbie.pictures.length - 1] || "",
+          category: hobbie.category,
         }));
 
       setFilteredHobbies(filteredHobbies);
@@ -52,16 +58,15 @@ export default function CategoryPage() {
     );
   }
 
-  function handleClick(cardTitle: string) {
-    router.push(`/${category}/${cardTitle}`);
-  }
-
   return (
     <>
       <NavBar />
       <div className="container-category-project">
         <Link href={"/"}>
-          <GiReturnArrow className="icon-return" />
+          <GiReturnArrow
+            className="icon-return"
+            aria-label="Icone de retour vers l'accueil"
+          />
         </Link>
         {filteredHobbies.length === 0 ? (
           <div className="no-projects-container">
@@ -85,7 +90,7 @@ export default function CategoryPage() {
             <h1 className="title-category-project">
               Projets de la catégorie : {category}
             </h1>
-            <FocusCards cards={filteredHobbies} handleClick={handleClick} />
+            <FocusCards cards={filteredHobbies} />
           </>
         )}
       </div>
