@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { HobbieProvider } from "@/context/hobbiesContext";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,6 +33,25 @@ export default function RootLayout({
         <meta
           name="google-site-verification"
           content="bCdmQsP_KkiWfYglx_1EH2iDHTcx_cqHknqr5iFr9ek"
+        />
+        <Script
+          id="gtag-script"
+          src="https://www.googletagmanager.com/gtag/js?id=G-36R7KBSXXL"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-36R7KBSXXL', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
         />
       </head>
       <body
