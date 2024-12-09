@@ -1,0 +1,28 @@
+.rules-container {
+    max-width: 1440px;
+    margin: 100px auto;
+    padding: 3rem 2rem;
+
+    .rules-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 2rem;
+
+        @media screen and (min-width: 768px) {
+            font-size: 32px;
+        }
+    }
+
+    .rules-content {
+        margin-top: 50px;
+
+        .rules-subtitle {
+            font-size: 20px;
+
+            @media screen and (min-width: 768px) {
+                font-size: 28px;
+            }
+        }
+    }
+}
