@@ -34,8 +34,9 @@ export default function RootLayout({
           name="google-site-verification"
           content="bCdmQsP_KkiWfYglx_1EH2iDHTcx_cqHknqr5iFr9ek"
         />
+        {/* Google Analytics */}
         <Script
-          id="gtag-script"
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-36R7KBSXXL"
           strategy="afterInteractive"
         />
@@ -47,9 +48,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-36R7KBSXXL', {
-                page_path: window.location.pathname,
-              });
+              gtag('config', 'G-36R7KBSXXL');
             `,
           }}
         />
