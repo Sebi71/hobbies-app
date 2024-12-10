@@ -25,9 +25,10 @@ export default function Categories() {
   };
 
   const filteredHobbies =
-    selectedCategory === "Tous"
-      ? hobbies
-      : hobbies.filter((hobbie) => hobbie.category === selectedCategory);
+  selectedCategory === "Tous"
+    ? sortedHobbies
+    : sortedHobbies.filter((hobbie) => hobbie.category === selectedCategory);
+
 
   return (
     <div className="reveal container-hobbies">
